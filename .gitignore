@@ -1,0 +1,14 @@
+*
+!.gitignore
+!README.md
+
+# add nvim settings file
+!.config/
+.conig/*
+!.config/nvim/
+.config/nvim/*
+!.config/nvim/init.vim
+
+# track tmux settings file
+!.tmux.conf
+
