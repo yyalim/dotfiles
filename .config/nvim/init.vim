@@ -1,16 +1,19 @@
 call plug#begin('~/.vim/plugged')
 
   Plug 'chriskempson/base16-vim'
+  Plug 'morhetz/gruvbox'
   Plug 'Raimondi/delimitMate'
   Plug 'mattn/emmet-vim'
   Plug 'Chiel92/vim-autoformat'
   Plug 'pangloss/vim-javascript'
   Plug 'tpope/vim-surround'
+  Plug 'neovimhaskell/haskell-vim'
 
 call plug#end()
 
 set termguicolors
-colorscheme base16-default-dark
+set background=dark
+colorscheme gruvbox
 
 set number 
 
