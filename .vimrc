@@ -17,7 +17,10 @@ set termguicolors
 set background=dark
 colorscheme gruvbox
 
-set number 
+set ruler         " show the cursor position all the time
+set showcmd       " display incomplete commands
+set laststatus=2  " always display the status line
+set number        " show numbers
 
 " shofttabs, two spaces
 set tabstop=2
