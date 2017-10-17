@@ -31,6 +31,7 @@ set expandtab
 " make it obvious where 80 chracter is
 set textwidth=80
 set colorcolumn=+1
+set wrap linebreak nolist
 
 " show extra spaces
 set list listchars=tab:»·,trail:·,nbsp:·
