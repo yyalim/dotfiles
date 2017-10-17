@@ -9,6 +9,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-surround'
   Plug 'neovimhaskell/haskell-vim'
   Plug 'vim-scripts/tComment'
+  Plug 'kien/ctrlp.vim'
 
 call plug#end()
 
