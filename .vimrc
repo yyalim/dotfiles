@@ -32,6 +32,9 @@ set expandtab
 set textwidth=80
 set colorcolumn=+1
 
+" show extra spaces
+set list listchars=tab:»·,trail:·,nbsp:·
+
 " Force to use hjkl
 nnoremap <Left> :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
