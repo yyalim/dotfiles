@@ -12,3 +12,6 @@
 # track tmux settings file
 !.tmux.conf
 
+# track vim config files
+!.vimrc
+
