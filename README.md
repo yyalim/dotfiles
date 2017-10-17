@@ -1,26 +1,26 @@
 alienaut dotfiles
 =================
 
-Good examples of configuration for machines uses tmux, neovim and zsh.
+Good examples of configuration for machines uses tmux, vim and zsh.
 
 
 Installition
 ------------
 
-firstly, install tmux, neovim, zsh to your computer.
+firstly, install tmux, vim, zsh to your computer.
 
 ```
 # arch linux
-sudo pacman -S tmux zsh neovim
+sudo pacman -S tmux zsh vim
 
 # debian
-sudo apt-get install tmux zsh neovim
+sudo apt-get install tmux zsh vim
 
 # fedora
-sudo dnf install tmux zsh neovim
+sudo dnf install tmux zsh vim
 
 # macOS with homebrew
-brew install tmux zsh neovim
+brew install tmux zsh vim
 ```
 
 Install vim plug via curl
@@ -39,7 +39,5 @@ git remote add origin git@github.com:alienaut/dotfiles.git
 git pull origin master
 ```
 
-In neovim switch to command mode and write ```:PlugInstall```, hit enter, and restart your lovely editor after plugins installed.
-
-
+In vim switch to command mode and write ```:PlugInstall```, hit enter, and restart your lovely editor after plugins installed.
 
