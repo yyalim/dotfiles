@@ -5,6 +5,13 @@
 # track tmux settings file
 !.tmux.conf
 
-# track vim config files
+# track vim config file
 !.vimrc
+
+# add nvim config file
+!.config/
+.config/*
+!.config/nvim/
+.config/nvim/*
+!.config/nvim/init.vim
 
