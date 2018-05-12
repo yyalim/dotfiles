@@ -1,6 +1,5 @@
 call plug#begin('~/.vim/plugged')
 
-  Plug 'chriskempson/base16-vim'
   Plug 'morhetz/gruvbox'
   Plug 'Raimondi/delimitMate'
   Plug 'mattn/emmet-vim'
