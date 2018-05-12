@@ -7,7 +7,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'Chiel92/vim-autoformat'
   Plug 'pangloss/vim-javascript'
   Plug 'tpope/vim-surround'
-  Plug 'neovimhaskell/haskell-vim'
   Plug 'vim-scripts/tComment'
 
 call plug#end()
