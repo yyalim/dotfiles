@@ -9,7 +9,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-surround'
   Plug 'neovimhaskell/haskell-vim'
   Plug 'vim-scripts/tComment'
-  Plug 'kien/ctrlp.vim'
 
 call plug#end()
 
@@ -60,4 +59,3 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
-
