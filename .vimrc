@@ -42,7 +42,7 @@ set list listchars=tab:»·,trail:·,nbsp:·
 nnoremap <Left> :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
-nnoremap <Right> :echoe "Use l"<CR>
+nnoremap <Down> :echoe "Use j"<CR>
 
 " Use minimal on gui
 if has('gui_running')
