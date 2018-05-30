@@ -1,12 +1,18 @@
 call plug#begin('~/.vim/plugged')
 
+  Plug 'chriskempson/base16-vim'
   Plug 'morhetz/gruvbox'
   Plug 'Raimondi/delimitMate'
   Plug 'mattn/emmet-vim'
   Plug 'Chiel92/vim-autoformat'
   Plug 'pangloss/vim-javascript'
   Plug 'tpope/vim-surround'
+  Plug 'neovimhaskell/haskell-vim'
   Plug 'vim-scripts/tComment'
+  Plug 'kien/ctrlp.vim'
+  Plug 'JulesWang/css.vim'
+  Plug 'cakebaker/scss-syntax.vim'
+  Plug 'itchyny/lightline.vim'
 
 call plug#end()
 
@@ -19,10 +25,6 @@ set showcmd       " display incomplete commands
 set laststatus=2  " always display the status line
 set noswapfile    " dont create useless swapfiles
 set number        " show numbers
-
-" check one time after 4s of inactivity in normal mode
-set autoread
-au CursorHold * checktime   
 
 " shofttabs, two spaces
 set tabstop=2
@@ -62,5 +64,3 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
-" enable fzf on vim
-set rtp+=/usr/local/opt/fzf
