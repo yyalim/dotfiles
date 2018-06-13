@@ -1,3 +1,3 @@
-if filereadable(expand("~/.vimrc"))
-  source ~/.vimrc
-endif
+set runtimepath^=~/.vim runtimepath+=~/.vim/after
+let &packpath = &runtimepath
+source ~/.vimrc
