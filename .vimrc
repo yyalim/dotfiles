@@ -1,6 +1,5 @@
 call plug#begin('~/.vim/plugged')
 
-  Plug 'chriskempson/base16-vim'
   Plug 'morhetz/gruvbox'
   Plug 'Raimondi/delimitMate'
   Plug 'mattn/emmet-vim'
@@ -12,10 +11,12 @@ call plug#begin('~/.vim/plugged')
   Plug 'JulesWang/css.vim'
   Plug 'cakebaker/scss-syntax.vim'
   Plug 'itchyny/lightline.vim'
+  Plug '/usr/local/opt/fzf'
+  Plug 'junegunn/fzf.vim'
+  Plug 'christoomey/vim-tmux-navigator'
 
 call plug#end()
 
-set termguicolors
 set background=dark
 colorscheme gruvbox
 
@@ -37,7 +38,7 @@ set colorcolumn=+1
 set wrap linebreak nolist
 
 " show extra spaces
-set list listchars=tab:»·,trail:·,nbsp:·
+set list listchars=tab:¬ª¬∑,trail:¬∑,nbsp:¬∑
 
 " Force to use hjkl
 nnoremap <Left> :echoe "Use h"<CR>
@@ -62,4 +63,3 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
-
