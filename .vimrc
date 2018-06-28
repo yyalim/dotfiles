@@ -38,7 +38,7 @@ set colorcolumn=+1
 set wrap linebreak nolist
 
 " show extra spaces
-set list listchars=tab:Èá,trail:á,nbsp:á
+set list listchars=tab:Â»Â·,trail:Â·,nbsp:Â·
 
 " Force to use hjkl
 nnoremap <Left> :echoe "Use h"<CR>
