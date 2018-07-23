@@ -3,8 +3,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'morhetz/gruvbox'
   Plug 'Raimondi/delimitMate'
   Plug 'mattn/emmet-vim'
-  Plug 'pangloss/vim-javascript'
-  Plug 'tpope/vim-surround'
   Plug 'vim-scripts/tComment'
   Plug 'JulesWang/css.vim'
   Plug 'cakebaker/scss-syntax.vim'
@@ -79,7 +77,9 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
-" Split edit your vimrc. Type space, v, r in sequence to trigger
+let mapleader = "\<Space>"
+
+"C Split edit your vimrc. Type space, v, r in sequence to trigger
 nmap <leader>vr :vsp ~/.vimrc<cr>
 " Source (reload) your vimrc. Type space, s, o in sequence to trigger
 nmap <leader>so :source ~/.vimrc<cr>
@@ -87,7 +87,7 @@ nmap <leader>so :source ~/.vimrc<cr>
 " paste from clipboard 
 nmap <leader>p "+p 
 " yank into clipboard 
-nmap <leader>y "+y 
+vmap <leader>y "+y 
 " cut into clipboard
 nmap <leader>d "+d
 " Copy the entire buffer into the system register
