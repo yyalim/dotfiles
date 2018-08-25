@@ -7,9 +7,13 @@ call plug#begin('~/.vim/plugged')
   Plug 'JulesWang/css.vim'
   Plug 'cakebaker/scss-syntax.vim'
   Plug 'itchyny/lightline.vim'
+  Plug 'tpope/vim-surround'
   Plug '/usr/local/opt/fzf'
   Plug 'junegunn/fzf.vim'
   Plug 'christoomey/vim-tmux-navigator'
+  Plug 'junegunn/goyo.vim'
+  Plug 'elmcast/elm-vim'
+  Plug 'tpope/vim-repeat'
 
 call plug#end()
 
@@ -21,14 +25,27 @@ set showcmd       " display incomplete commands
 set laststatus=2  " always display the status line
 set noswapfile    " dont create useless swapfiles
 
+set incsearch
+set ignorecase
+set smartcase
+set hlsearch
+
 " uses hybrid line number on focused pane
 " normal line numbers on unfocused paneS
 set number relativenumber
 
+" use hybrid line number on active window
 augroup numbertoggle
   autocmd!
   autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
   autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END
+
+" use line highlighting on active window
+augroup CursorLine
+  au!
+  au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+  au WinLeave * setlocal nocursorline
 augroup END
 
 " shofttabs, two spaces
@@ -86,10 +103,12 @@ nmap <leader>so :source ~/.vimrc<cr>
 
 " paste from clipboard 
 nmap <leader>p "+p 
+vmap <leader>p "+p
 " yank into clipboard 
 vmap <leader>y "+y 
 " cut into clipboard
 nmap <leader>d "+d
+vmap <leader>d "+d
 " Copy the entire buffer into the system register
 nmap <leader>co ggVG"+y
 
@@ -97,3 +116,14 @@ nmap <leader>co ggVG"+y
 nmap <leader>o o<esc>
 nmap <leader>O O<esc>
 
+" open fuzzyfinder
+nmap <leader>t :GFiles<cr>
+nmap <leader>T :Files<cr>
+nmap <leader>t! :e!<cr>:GFiles<cr>
+nmap <leader>T! :e!<cr>:Files<cr>
+
+" save
+nmap <leader>w :w<cr>
+
+" quit
+nmap <leader>q :q<cr>
