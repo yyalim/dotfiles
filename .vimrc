@@ -14,6 +14,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'junegunn/goyo.vim'
   Plug 'elmcast/elm-vim'
   Plug 'tpope/vim-repeat'
+  Plug 'dNitro/vim-pug-complete', { 'for': ['jade', 'pug'] }
 
 call plug#end()
 
@@ -25,9 +26,9 @@ set showcmd       " display incomplete commands
 set laststatus=2  " always display the status line
 set noswapfile    " dont create useless swapfiles
 
+" Use search highlighting
 set incsearch
 set ignorecase
-set smartcase
 set hlsearch
 
 " uses hybrid line number on focused pane
@@ -127,3 +128,12 @@ nmap <leader>w :w<cr>
 
 " quit
 nmap <leader>q :q<cr>
+
+" clear search highlighting
+nmap <leader>n :noh<cr>
+
+" split vertical
+nmap <leader>vsp :vsplit<cr>:e .<cr>
+nmap <leader>vspt :vsplit<cr>:GFiles<cr>
+
+
