@@ -8,13 +8,16 @@ call plug#begin('~/.vim/plugged')
   Plug 'cakebaker/scss-syntax.vim'
   Plug 'itchyny/lightline.vim'
   Plug 'tpope/vim-surround'
-  Plug '/usr/local/opt/fzf'
-  Plug 'junegunn/fzf.vim'
   Plug 'christoomey/vim-tmux-navigator'
   Plug 'junegunn/goyo.vim'
   Plug 'elmcast/elm-vim'
   Plug 'tpope/vim-repeat'
+  Plug 'pangloss/vim-javascript'
+  Plug 'mxw/vim-jsx'
   Plug 'dNitro/vim-pug-complete', { 'for': ['jade', 'pug'] }
+  Plug 'w0rp/ale'
+  Plug 'godlygeek/tabular'
+  Plug 'plasticboy/vim-markdown'
 
 call plug#end()
 
@@ -135,5 +138,4 @@ nmap <leader>n :noh<cr>
 " split vertical
 nmap <leader>vsp :vsplit<cr>:e .<cr>
 nmap <leader>vspt :vsplit<cr>:GFiles<cr>
-
 
