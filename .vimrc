@@ -18,6 +18,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'w0rp/ale'
   Plug 'godlygeek/tabular'
   Plug 'plasticboy/vim-markdown'
+  Plug 'ctrlpvim/ctrlp.vim'
+  Plug 'tpope/vim-obsession'
 
 call plug#end()
 
@@ -61,11 +63,13 @@ set expandtab
 " make it obvious where 80 chracter is
 set textwidth=80
 set colorcolumn=+1
-set wrap linebreak nolist
+" set wrap linebreak nolist
 
 " show extra spaces
 set list listchars=tab:»·,trail:·,nbsp:·
 
+" enable mouse support
+set mouse=a
 
 " Use minimal on gui
 if has('gui_running')
@@ -79,12 +83,20 @@ endif
 set splitbelow
 set splitright
 
+" ctrlp ignore files
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ 'link': '',
+  \ }
+
+" ctrlp show hidden files
+let g:ctrlp_show_hidden = 1
+
 " Move up and down by visible lines if current line is wrapped
 nmap j gj
 nmap k gk
-
-" quick switch to normal mode
-imap jj <esc>
 
 " Force to use hjkl
 nnoremap <Left> :echoe "Use h"<CR>
@@ -99,6 +111,7 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
 let mapleader = "\<Space>"
+
 
 "C Split edit your vimrc. Type space, v, r in sequence to trigger
 nmap <leader>vr :vsp ~/.vimrc<cr>
@@ -120,12 +133,6 @@ nmap <leader>co ggVG"+y
 nmap <leader>o o<esc>
 nmap <leader>O O<esc>
 
-" open fuzzyfinder
-nmap <leader>t :GFiles<cr>
-nmap <leader>T :Files<cr>
-nmap <leader>t! :e!<cr>:GFiles<cr>
-nmap <leader>T! :e!<cr>:Files<cr>
-
 " save
 nmap <leader>w :w<cr>
 
@@ -139,3 +146,24 @@ nmap <leader>n :noh<cr>
 nmap <leader>vsp :vsplit<cr>:e .<cr>
 nmap <leader>vspt :vsplit<cr>:GFiles<cr>
 
+function! MakeSession()
+  let b:sessiondir = $HOME . "/.vim/sessions" . getcwd()
+  if (filewritable(b:sessiondir) != 2)
+    exe 'silent !mkdir -p ' b:sessiondir
+    redraw!
+  endif
+  let b:filename = b:sessiondir . '/session.vim'
+  exe "mksession! " . b:filename
+endfunction
+
+function! LoadSession()
+  let b:sessiondir = $HOME . "/.vim/sessions" . getcwd()
+  let b:sessionfile = b:sessiondir . "/session.vim"
+  if (filereadable(b:sessionfile))
+    exe 'source ' b:sessionfile
+  else
+    echo "No session loaded."
+  endif
+endfunction
+au VimEnter * nested :call LoadSession()
+au VimLeave * :call MakeSession()
