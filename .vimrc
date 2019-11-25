@@ -1,31 +1,32 @@
 call plug#begin('~/.vim/plugged')
 
-  Plug 'morhetz/gruvbox'
-  Plug 'Raimondi/delimitMate'
-  Plug 'mattn/emmet-vim'
-  Plug 'vim-scripts/tComment'
-  Plug 'JulesWang/css.vim'
-  Plug 'cakebaker/scss-syntax.vim'
-  Plug 'itchyny/lightline.vim'
-  Plug 'tpope/vim-surround'
-  Plug 'christoomey/vim-tmux-navigator'
-  Plug 'junegunn/goyo.vim'
-  Plug 'elmcast/elm-vim'
-  Plug 'tpope/vim-repeat'
-  Plug 'pangloss/vim-javascript'
-  Plug 'mxw/vim-jsx'
-  Plug 'dNitro/vim-pug-complete', { 'for': ['jade', 'pug'] }
-  Plug 'w0rp/ale'
-  Plug 'godlygeek/tabular'
-  Plug 'plasticboy/vim-markdown'
-  Plug 'ctrlpvim/ctrlp.vim'
-  Plug 'tpope/vim-obsession'
+	Plug 'morhetz/gruvbox'
+	Plug 'Raimondi/delimitMate'
+	Plug 'mattn/emmet-vim'
+	Plug 'vim-scripts/tComment'
+	Plug 'JulesWang/css.vim'
+	Plug 'cakebaker/scss-syntax.vim'
+	Plug 'itchyny/lightline.vim'
+	Plug 'tpope/vim-surround'
+	Plug 'christoomey/vim-tmux-navigator'
+	Plug 'junegunn/goyo.vim'
+	Plug 'elmcast/elm-vim'
+	Plug 'tpope/vim-repeat'
+	Plug 'pangloss/vim-javascript'
+	Plug 'mxw/vim-jsx'
+	Plug 'w0rp/ale'
+	Plug 'godlygeek/tabular'
+	Plug 'plasticboy/vim-markdown'
+	Plug 'ctrlpvim/ctrlp.vim'
+	Plug 'airblade/vim-gitgutter'
+	Plug 'godlygeek/tabular'
+	Plug 'tpope/vim-fugitive'
 
 call plug#end()
 
 set background=dark
 colorscheme gruvbox
-
+ 
 set ruler         " show the cursor position all the time
 set showcmd       " display incomplete commands
 set laststatus=2  " always display the status line
@@ -54,11 +55,17 @@ augroup CursorLine
   au WinLeave * setlocal nocursorline
 augroup END
 
-" shofttabs, two spaces
+" use tabs
+set noexpandtab
+set copyindent
+set preserveindent
+set softtabstop=2
 set tabstop=2
 set shiftwidth=2
-set shiftround
-set expandtab
+set autoindent
+set smartindent
+
+let g:indent_guides_enable_on_vim_startup = 1
 
 " make it obvious where 80 chracter is
 set textwidth=80
@@ -144,7 +151,12 @@ nmap <leader>n :noh<cr>
 
 " split vertical
 nmap <leader>vsp :vsplit<cr>:e .<cr>
-nmap <leader>vspt :vsplit<cr>:GFiles<cr>
+
+" git gutter line highligts
+nmap <leader>diff :GitGutterLineNrHighlightsToggle<cr>:GitGutterLineHighlightsToggle<cr>
+
+" run plug install
+nmap <leader>PI :source ~/.vimrc<cr>:PlugInstall<cr>
 
 function! MakeSession()
   let b:sessiondir = $HOME . "/.vim/sessions" . getcwd()
@@ -167,3 +179,4 @@ function! LoadSession()
 endfunction
 au VimEnter * nested :call LoadSession()
 au VimLeave * :call MakeSession()
+
