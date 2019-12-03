@@ -21,12 +21,18 @@ call plug#begin('~/.vim/plugged')
 	Plug 'airblade/vim-gitgutter'
 	Plug 'godlygeek/tabular'
 	Plug 'tpope/vim-fugitive'
+	Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 
+" use utf-8
+set encoding=UTF-8
+
+" colorscheme
 set background=dark
 colorscheme gruvbox
- 
+
+" interface
 set ruler         " show the cursor position all the time
 set showcmd       " display incomplete commands
 set laststatus=2  " always display the status line
@@ -74,6 +80,8 @@ set colorcolumn=+1
 
 " show extra spaces
 set list listchars=tab:»·,trail:·,nbsp:·
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
 
 " enable mouse support
 set mouse=a
@@ -119,17 +127,16 @@ nnoremap <C-l> <C-w>l
 
 let mapleader = "\<Space>"
 
-
 "C Split edit your vimrc. Type space, v, r in sequence to trigger
 nmap <leader>vr :vsp ~/.vimrc<cr>
 " Source (reload) your vimrc. Type space, s, o in sequence to trigger
 nmap <leader>so :source ~/.vimrc<cr>
 
-" paste from clipboard 
-nmap <leader>p "+p 
+" paste from clipboard
+nmap <leader>p "+p
 vmap <leader>p "+p
-" yank into clipboard 
-vmap <leader>y "+y 
+" yank into clipboard
+vmap <leader>y "+y
 " cut into clipboard
 nmap <leader>d "+d
 vmap <leader>d "+d
