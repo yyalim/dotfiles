@@ -1,6 +1,7 @@
-call plug#begin('~/.vim/plugged')
+	call plug#begin('~/.vim/plugged')
 
 	Plug 'morhetz/gruvbox'
+	Plug 'joshdick/onedark.vim'
 	Plug 'Raimondi/delimitMate'
 	Plug 'mattn/emmet-vim'
 	Plug 'vim-scripts/tComment'
@@ -21,9 +22,15 @@ call plug#begin('~/.vim/plugged')
 	Plug 'airblade/vim-gitgutter'
 	Plug 'godlygeek/tabular'
 	Plug 'tpope/vim-fugitive'
-	Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
+
+if (has("nvim"))
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+endif
+if (has("termguicolors"))
+  set termguicolors
+endif
 
 " use utf-8
 set encoding=UTF-8
@@ -37,6 +44,7 @@ set ruler         " show the cursor position all the time
 set showcmd       " display incomplete commands
 set laststatus=2  " always display the status line
 set noswapfile    " dont create useless swapfiles
+set showtabline=2 " always show tab
 
 " Use search highlighting
 set incsearch
@@ -95,8 +103,12 @@ if has('gui_running')
 endif
 
 " Open new split panes to right and bottom, which feels more natural
+" :
 set splitbelow
 set splitright
+
+" use tree view on explore
+let g:netrw_liststyle = 3
 
 " ctrlp ignore files
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
@@ -108,6 +120,7 @@ let g:ctrlp_custom_ignore = {
 
 " ctrlp show hidden files
 let g:ctrlp_show_hidden = 1
+let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:30,results:30'
 
 " Move up and down by visible lines if current line is wrapped
 nmap j gj
@@ -164,6 +177,16 @@ nmap <leader>diff :GitGutterLineNrHighlightsToggle<cr>:GitGutterLineHighlightsTo
 
 " run plug install
 nmap <leader>PI :source ~/.vimrc<cr>:PlugInstall<cr>
+
+" ctrlp shorcuts
+nmap <c-R> :CtrlPBufTag<cr>
+nmap <leader>p :CtrlPMRUFiles<cr>
+
+" automatically source when .vimrc updated
+augroup autosourcing
+	autocmd!
+	autocmd BufWritePost .vimrc source %
+augroup END
 
 function! MakeSession()
   let b:sessiondir = $HOME . "/.vim/sessions" . getcwd()

@@ -8,6 +8,9 @@
 # track vim config file
 !.vimrc
 
+# track notes.md
+!notes.md
+
 # add nvim config file
 !.config/
 .config/*
