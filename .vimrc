@@ -1,4 +1,4 @@
-	call plug#begin('~/.vim/plugged')
+call plug#begin('~/.vim/plugged')
 
 	Plug 'morhetz/gruvbox'
 	Plug 'joshdick/onedark.vim'
@@ -22,6 +22,8 @@
 	Plug 'airblade/vim-gitgutter'
 	Plug 'godlygeek/tabular'
 	Plug 'tpope/vim-fugitive'
+	Plug 'rking/ag.vim'
+	Plug 'skwp/greplace.vim'
 
 call plug#end()
 
@@ -103,12 +105,15 @@ if has('gui_running')
 endif
 
 " Open new split panes to right and bottom, which feels more natural
-" :
 set splitbelow
 set splitright
 
 " use tree view on explore
 let g:netrw_liststyle = 3
+
+" greplace for ag.vim
+set grepprg=ag
+let g:grep_cmd_opts = '--line-numbers --noheading'
 
 " ctrlp ignore files
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
@@ -120,7 +125,9 @@ let g:ctrlp_custom_ignore = {
 
 " ctrlp show hidden files
 let g:ctrlp_show_hidden = 1
-let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:30,results:30'
+" let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:30,results:30'
+
+let mapleader = "\<Space>"
 
 " Move up and down by visible lines if current line is wrapped
 nmap j gj
@@ -137,8 +144,6 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
-
-let mapleader = "\<Space>"
 
 "C Split edit your vimrc. Type space, v, r in sequence to trigger
 nmap <leader>vr :vsp ~/.vimrc<cr>
@@ -180,13 +185,7 @@ nmap <leader>PI :source ~/.vimrc<cr>:PlugInstall<cr>
 
 " ctrlp shorcuts
 nmap <c-R> :CtrlPBufTag<cr>
-nmap <leader>p :CtrlPMRUFiles<cr>
-
-" automatically source when .vimrc updated
-augroup autosourcing
-	autocmd!
-	autocmd BufWritePost .vimrc source %
-augroup END
+nmap <c-O> :CtrlPMRUFiles<cr>
 
 function! MakeSession()
   let b:sessiondir = $HOME . "/.vim/sessions" . getcwd()
